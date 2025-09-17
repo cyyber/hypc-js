@@ -34,7 +34,7 @@ function runTests (hypc, versionText) {
   function getBytecodeStandard (output, fileName, contractName) {
     try {
       const outputFile = output.contracts[fileName];
-      return outputFile[contractName].zvm.bytecode.object;
+      return outputFile[contractName].qrvm.bytecode.object;
     } catch (e) {
       return '';
     }
@@ -47,7 +47,7 @@ function runTests (hypc, versionText) {
         [fileName, contractName] = resplitFileNameOnFirstColon(fileName, contractName);
       }
       const outputFile = output.contracts[fileName];
-      return outputFile[contractName].zvm.gasEstimates;
+      return outputFile[contractName].qrvm.gasEstimates;
     } catch (e) {
       return '';
     }
@@ -310,7 +310,7 @@ function runTests (hypc, versionText) {
           settings: {
             outputSelection: {
               '*': {
-                '*': ['zvm.bytecode']
+                '*': ['qrvm.bytecode']
               }
             }
           },
@@ -326,7 +326,7 @@ function runTests (hypc, versionText) {
 
         function bytecodeExists (output, fileName, contractName) {
           try {
-            return output.contracts[fileName][contractName].zvm.bytecode.object.length > 0;
+            return output.contracts[fileName][contractName].qrvm.bytecode.object.length > 0;
           } catch (e) {
             return false;
           }
@@ -350,7 +350,7 @@ function runTests (hypc, versionText) {
           settings: {
             outputSelection: {
               '*': {
-                '*': ['zvm.bytecode']
+                '*': ['qrvm.bytecode']
               }
             }
           },
@@ -385,7 +385,7 @@ function runTests (hypc, versionText) {
           settings: {
             outputSelection: {
               '*': {
-                '*': ['zvm.bytecode']
+                '*': ['qrvm.bytecode']
               }
             }
           },
@@ -406,7 +406,7 @@ function runTests (hypc, versionText) {
 
         function bytecodeExists (output, fileName, contractName) {
           try {
-            return output.contracts[fileName][contractName].zvm.bytecode.object.length > 0;
+            return output.contracts[fileName][contractName].qrvm.bytecode.object.length > 0;
           } catch (e) {
             return false;
           }
@@ -425,7 +425,7 @@ function runTests (hypc, versionText) {
           settings: {
             outputSelection: {
               '*': {
-                '*': ['zvm.bytecode', 'zvm.gasEstimates']
+                '*': ['qrvm.bytecode', 'qrvm.gasEstimates']
               }
             }
           },
@@ -465,7 +465,7 @@ function runTests (hypc, versionText) {
           settings: {
             outputSelection: {
               '*': {
-                '*': ['zvm.bytecode', 'zvm.gasEstimates']
+                '*': ['qrvm.bytecode', 'qrvm.gasEstimates']
               }
             }
           },
@@ -514,7 +514,7 @@ function runTests (hypc, versionText) {
           settings: {
             outputSelection: {
               '*': {
-                '*': ['zvm.bytecode', 'zvm.gasEstimates']
+                '*': ['qrvm.bytecode', 'qrvm.gasEstimates']
               }
             }
           },
@@ -546,7 +546,7 @@ function runTests (hypc, versionText) {
           settings: {
             outputSelection: {
               '*': {
-                '*': ['zvm.bytecode']
+                '*': ['qrvm.bytecode']
               }
             }
           },
@@ -590,12 +590,12 @@ function runTests (hypc, versionText) {
           settings: {
             libraries: {
               'lib.hyp': {
-                L: 'Z4200000000000000000000000000000000000001'
+                L: 'Q4200000000000000000000000000000000000001'
               }
             },
             outputSelection: {
               '*': {
-                '*': ['zvm.bytecode']
+                '*': ['qrvm.bytecode']
               }
             }
           },
@@ -627,7 +627,7 @@ function runTests (hypc, versionText) {
           settings: {
             outputSelection: {
               '*': {
-                '*': ['zvm.bytecode']
+                '*': ['qrvm.bytecode']
               }
             }
           },
@@ -655,12 +655,12 @@ function runTests (hypc, versionText) {
           settings: {
             libraries: {
               'lib.hyp': {
-                L: 'Z4200000000000000000000000000000000000001'
+                L: 'Q4200000000000000000000000000000000000001'
               }
             },
             outputSelection: {
               '*': {
-                '*': ['zvm.bytecode']
+                '*': ['qrvm.bytecode']
               }
             }
           },
@@ -721,7 +721,7 @@ function runTests (hypc, versionText) {
           settings: {
             outputSelection: {
               '*': {
-                '*': ['zvm.bytecode']
+                '*': ['qrvm.bytecode']
               }
             }
           },
@@ -746,7 +746,7 @@ function runTests (hypc, versionText) {
           settings: {
             outputSelection: {
               '*': {
-                '*': ['zvm.bytecode']
+                '*': ['qrvm.bytecode']
               }
             }
           },
@@ -785,7 +785,7 @@ function runTests (hypc, versionText) {
             settings: {
               outputSelection: {
                 '*': {
-                  '*': ['zvm.bytecode']
+                  '*': ['qrvm.bytecode']
                 }
               }
             },

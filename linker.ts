@@ -112,17 +112,17 @@ function linkBytecode (bytecode: string, libraries: LibraryAddresses): string {
 
 /**
  * Finds locations of all library address placeholders in the hex-encoded bytecode.
- * Returns information in a format matching `zvm.bytecode.linkReferences` output
+ * Returns information in a format matching `qrvm.bytecode.linkReferences` output
  * in Standard JSON.
  *
  * See [Library Linking](https://docs.soliditylang.org/en/latest/using-the-compiler.html#library-linking)
  * for a full explanation of library placeholders and linking process.
  *
- * WARNING: The output matches `zvm.bytecode.linkReferences` exactly only in
+ * WARNING: The output matches `qrvm.bytecode.linkReferences` exactly only in
  * case of old-style placeholders created from fully qualified library names
  * of no more than 36 characters, and even then only if the name does not start
  * or end with an underscore. This is different from
- * `zvm.bytecode.linkReferences`, which uses fully qualified library names.
+ * `qrvm.bytecode.linkReferences`, which uses fully qualified library names.
  * This is a limitation of the placeholder format - the fully qualified names
  * are not preserved in the compiled bytecode and cannot be reconstructed
  * without external information.
@@ -135,7 +135,7 @@ function linkBytecode (bytecode: string, libraries: LibraryAddresses): string {
  * it's the first 34 characters of the hex-encoded hash of the fully qualified
  * library name, with a leading and trailing $ character added. Note that the
  * offsets and lengths refer to the *binary* (not hex-encoded) bytecode, just
- * like in `zvm.bytecode.linkReferences`.
+ * like in `qrvm.bytecode.linkReferences`.
  */
 function findLinkReferences (bytecode: string): LinkReferences {
   assert(typeof bytecode === 'string');

@@ -37,7 +37,7 @@ Having absolute paths in contract metadata will result in your bytecode being re
 when it's placed in these exact absolute locations.
 
 Note: this commandline interface is not compatible with `hypc` provided by the Hyperion compiler package and thus cannot be
-used in combination with an Zond client via the `zond.compile.hyperion()` RPC method. Please refer to the
+used in combination with a QRL client via the `qrl.compile.hyperion()` RPC method. Please refer to the
 [Hyperion compiler documentation](https://theqrl.org/) for instructions to install `hypc`.
 Furthermore, the commandline interface to hypc-js provides fewer features than the binary release.
 
