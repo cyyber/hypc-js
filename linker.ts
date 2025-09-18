@@ -71,7 +71,7 @@ function linkBytecode (bytecode: string, libraries: LibraryAddresses): string {
     }
 
     // API compatible with the standard JSON i/o
-    // {"lib.hyp": {"L": "Z..."}}
+    // {"lib.hyp": {"L": "Q..."}}
     if (isObject(libraryObjectOrAddress)) {
       for (const [unqualifiedLibraryName, address] of Object.entries(libraryObjectOrAddress)) {
         librariesComplete[unqualifiedLibraryName] = address;
@@ -96,7 +96,7 @@ function linkBytecode (bytecode: string, libraries: LibraryAddresses): string {
   for (const libraryName in librariesComplete) {
     let hexAddress = librariesComplete[libraryName];
 
-    if (!hexAddress.startsWith('Z') || hexAddress.length > 41) {
+    if (!hexAddress.startsWith('Q') || hexAddress.length > 41) {
       throw new Error(`Invalid address specified for ${libraryName}`);
     }
 
