@@ -91,7 +91,7 @@ for (var contractName in output.contracts['test.hyp']) {
   console.log(
     contractName +
       ': ' +
-      output.contracts['test.hyp'][contractName].evm.bytecode.object
+      output.contracts['test.hyp'][contractName].qrvm.bytecode.object
   );
 }
 ```
@@ -136,7 +136,7 @@ for (var contractName in output.contracts['test.hyp']) {
   console.log(
     contractName +
       ': ' +
-      output.contracts['test.hyp'][contractName].evm.bytecode.object
+      output.contracts['test.hyp'][contractName].qrvm.bytecode.object
   );
 }
 ```
@@ -266,7 +266,7 @@ The `linkBytecode` method provides a simple helper for linking:
 ```javascript
 var linker = require('@theqrl/hypc/linker');
 
-bytecode = linker.linkBytecode(bytecode, { MyLibrary: '0x123456...' });
+bytecode = linker.linkBytecode(bytecode, { MyLibrary: 'Q123456...' });
 ```
 
 As of Hyperion 0.4.11 the compiler supports [standard JSON input and output](https://theqrl.org) which outputs a _link references_ map. This gives a map of library names to offsets in the bytecode to replace the addresses at. It also doesn't have the limitation on library file and contract name lengths.
