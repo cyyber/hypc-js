@@ -180,7 +180,7 @@ tape('CLI', function (t) {
       settings: {
         outputSelection: {
           '*': {
-            '*': ['zvm.bytecode', 'userdoc']
+            '*': ['qrvm.bytecode', 'userdoc']
           }
         }
       },
