@@ -152,7 +152,7 @@ tape('Linking', function (t) {
   t.test('hashed placeholder', function (st) {
     let bytecode = '6060604052341561000__$7484607a72fb0587588e5a1e608f0b16de$__66606060606060';
     bytecode = linker.linkBytecode(bytecode, { 'lib2.hyp:L': 'Q123456' });
-    st.equal(bytecode, '6060604052341561000000000000000000000000000000000000012345666606060606060');
+    st.equal(bytecode, `6060604052341561000${'123456'.padStart(96, '0')}66606060606060`);
     st.end();
   });
 
