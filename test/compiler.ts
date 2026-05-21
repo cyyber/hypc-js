@@ -413,7 +413,6 @@ function runTests (hypc, versionText) {
         }
 
         const output = JSON.parse(hypc.lowlevel.compileStandard(JSON.stringify(input), { import: findImports }));
-        console.log(JSON.stringify(input));
         st.ok(bytecodeExists(output, 'a.hyp', 'A'));
         st.ok(bytecodeExists(output, 'b.hyp', 'B'));
         st.end();
@@ -590,7 +589,7 @@ function runTests (hypc, versionText) {
           settings: {
             libraries: {
               'lib.hyp': {
-                L: 'Q000000000000000000000000000000000000000000000000000000004200000000000000000000000000000000000001'
+                L: 'Q42424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242'
               }
             },
             outputSelection: {
@@ -655,7 +654,7 @@ function runTests (hypc, versionText) {
           settings: {
             libraries: {
               'lib.hyp': {
-                L: 'Q000000000000000000000000000000000000000000000000000000004200000000000000000000000000000000000001'
+                L: 'Q42424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242'
               }
             },
             outputSelection: {

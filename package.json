@@ -1,6 +1,6 @@
 {
   "name": "@theqrl/hypc",
-  "version": "0.2.0-48b.0",
+  "version": "0.2.0-64b.0",
   "description": "Hyperion compiler",
   "main": "index.js",
   "bin": {
@@ -18,7 +18,7 @@
     "tarballName": "jq --raw-output '(.name | sub(\"@\"; \"\") | gsub(\"/\"; \"-\")) + \"-\" + .version + \".tgz\"' package.json",
     "copyTestFiles": "cp -r ./test/resources ./dist/test/",
     "pretest": "npm run lint && npm run build && npm run copyTestFiles",
-    "test": "cd dist && tape ./test/index.js",
+    "test": "cd dist && tape ./test/index.js --no-remote-versions",
     "coverage": "nyc npm run test",
     "coveralls": "npm run coverage && coveralls <coverage/lcov.info"
   },

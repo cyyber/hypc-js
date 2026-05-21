@@ -3,7 +3,7 @@ import { keccak256 } from 'js-sha3';
 import { isNil, isObject } from './common/helpers';
 import { LibraryAddresses, LinkReferences } from './common/types';
 
-const ADDRESS_HEX_LENGTH = 96;
+const ADDRESS_HEX_LENGTH = 128;
 const ADDRESS_PREFIX = 'Q';
 const PREFIXED_ADDRESS_LENGTH = ADDRESS_HEX_LENGTH + ADDRESS_PREFIX.length;
 
@@ -57,7 +57,7 @@ function replacePlaceholder (bytecode, label, address) {
  *     `__` will be interpreted as placeholders.
  *
  * @param libraries Mapping between fully qualified library names and the hex-encoded
- *     addresses they should be replaced with. Addresses shorter than 96 characters are automatically padded with zeros.
+ *     addresses they should be replaced with. Addresses shorter than 128 characters are automatically padded with zeros.
  *
  * @returns bytecode Hex-encoded bytecode string with placeholders replaced with addresses.
  *    Note that some placeholders may remain in the bytecode if `libraries` does not provide addresses for all of them.
