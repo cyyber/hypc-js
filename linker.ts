@@ -3,6 +3,10 @@ import { keccak256 } from 'js-sha3';
 import { isNil, isObject } from './common/helpers';
 import { LibraryAddresses, LinkReferences } from './common/types';
 
+const ADDRESS_HEX_LENGTH = 128;
+const ADDRESS_PREFIX = 'Q';
+const PREFIXED_ADDRESS_LENGTH = ADDRESS_HEX_LENGTH + ADDRESS_PREFIX.length;
+
 /**
  * Generates a new-style library placeholder from a fully-qualified library name.
  *
@@ -53,7 +57,7 @@ function replacePlaceholder (bytecode, label, address) {
  *     `__` will be interpreted as placeholders.
  *
  * @param libraries Mapping between fully qualified library names and the hex-encoded
- *     addresses they should be replaced with. Addresses shorter than 40 characters are automatically padded with zeros.
+ *     addresses they should be replaced with. Addresses shorter than 128 characters are automatically padded with zeros.
  *
  * @returns bytecode Hex-encoded bytecode string with placeholders replaced with addresses.
  *    Note that some placeholders may remain in the bytecode if `libraries` does not provide addresses for all of them.
@@ -96,12 +100,12 @@ function linkBytecode (bytecode: string, libraries: LibraryAddresses): string {
   for (const libraryName in librariesComplete) {
     let hexAddress = librariesComplete[libraryName];
 
-    if (!hexAddress.startsWith('Q') || hexAddress.length > 41) {
+    if (!hexAddress.startsWith(ADDRESS_PREFIX) || hexAddress.length > PREFIXED_ADDRESS_LENGTH) {
       throw new Error(`Invalid address specified for ${libraryName}`);
     }
 
-    // remove 0x prefix
-    hexAddress = hexAddress.slice(1).padStart(40, '0');
+    // remove address prefix
+    hexAddress = hexAddress.slice(ADDRESS_PREFIX.length).padStart(ADDRESS_HEX_LENGTH, '0');
 
     bytecode = replacePlaceholder(bytecode, libraryName, hexAddress);
     bytecode = replacePlaceholder(bytecode, libraryHashPlaceholder(libraryName), hexAddress);
