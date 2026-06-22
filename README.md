@@ -37,7 +37,7 @@ Having absolute paths in contract metadata will result in your bytecode being re
 when it's placed in these exact absolute locations.
 
 Note: this commandline interface is not compatible with `hypc` provided by the Hyperion compiler package and thus cannot be
-used in combination with an Zond client via the `zond.compile.hyperion()` RPC method. Please refer to the
+used in combination with a QRL client via the `qrl.compile.hyperion()` RPC method. Please refer to the
 [Hyperion compiler documentation](https://theqrl.org/) for instructions to install `hypc`.
 Furthermore, the commandline interface to hypc-js provides fewer features than the binary release.
 
@@ -91,7 +91,7 @@ for (var contractName in output.contracts['test.hyp']) {
   console.log(
     contractName +
       ': ' +
-      output.contracts['test.hyp'][contractName].evm.bytecode.object
+      output.contracts['test.hyp'][contractName].qrvm.bytecode.object
   );
 }
 ```
@@ -136,7 +136,7 @@ for (var contractName in output.contracts['test.hyp']) {
   console.log(
     contractName +
       ': ' +
-      output.contracts['test.hyp'][contractName].evm.bytecode.object
+      output.contracts['test.hyp'][contractName].qrvm.bytecode.object
   );
 }
 ```
@@ -266,7 +266,7 @@ The `linkBytecode` method provides a simple helper for linking:
 ```javascript
 var linker = require('@theqrl/hypc/linker');
 
-bytecode = linker.linkBytecode(bytecode, { MyLibrary: '0x123456...' });
+bytecode = linker.linkBytecode(bytecode, { MyLibrary: 'Q123456...' });
 ```
 
 As of Hyperion 0.4.11 the compiler supports [standard JSON input and output](https://theqrl.org) which outputs a _link references_ map. This gives a map of library names to offsets in the bytecode to replace the addresses at. It also doesn't have the limitation on library file and contract name lengths.

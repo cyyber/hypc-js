@@ -197,7 +197,7 @@ const cliInput = {
     },
     outputSelection: {
       '*': {
-        '*': ['abi', 'zvm.bytecode']
+        '*': ['abi', 'qrvm.bytecode']
       }
     }
   },
@@ -239,7 +239,7 @@ for (const fileName in output.contracts) {
     contractFileName = contractFileName.replace(/[:./\\]/g, '_');
 
     if (options.bin) {
-      writeFile(contractFileName + '.bin', output.contracts[fileName][contractName].zvm.bytecode.object);
+      writeFile(contractFileName + '.bin', output.contracts[fileName][contractName].qrvm.bytecode.object);
     }
 
     if (options.abi) {
